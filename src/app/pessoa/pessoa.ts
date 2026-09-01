@@ -8,23 +8,25 @@ import { validarPessoa } from './pessoa.validacao';
   styleUrl: './pessoa.css'
 })
 export class Pessoa {
+ pessoa = new Pessoa();
+
   pessoas: PessoaModel[] = [
-    { id: 1, nome: 'Ana Souza',
+    { id: 1, nome: '',
       curso: 'Eng. Computação',
       email: 'ana@exemplo.com',
       vinculo: 'aluno', ativo: true },
 
-    { id: 2, nome: 'Bruno Lima',
+    { id: 2, nome: 'Brena Barreto',
       curso: 'Eng. Computação',
-      email: 'bruno@exemplo.com',
+      email: 'brunoexemplo.com',
       vinculo: 'professor', ativo: true },
 
-      { id: 3, nome: 'Daniel Gomes',
+      { id: 3, nome: 'Gileno Costa',
       curso: 'ADS',
       email: 'daniel@exemplo.com',
       vinculo: 'aluno', ativo: true },
 
-    { id: 4, nome: 'Carla Dias',
+    { id: 4, nome: 'Karoline Dias',
       curso: 'ADS',
       email: 'carla@exemplo.com',
       vinculo: 'convidado', ativo: true },

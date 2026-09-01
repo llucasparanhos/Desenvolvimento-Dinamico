@@ -9,8 +9,12 @@ const CURSOS_VALIDOS = [
 export function validarNome(nome: string): string | null {
   const limpo = nome.trim();
 
+  if (!limpo) {
+    return 'O nome é obrigatório.';
+  }
+
   if (limpo.length < 3) {
-    return 'O nome deve ter ao menos 3 caracteres.';
+    return 'Digite um nome com pelo menos 3 caracteres.';
   }
 
   if (/\d/.test(limpo)) {
@@ -28,29 +32,33 @@ export function validarEmail(email: string): string | null {
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(limpo)) {
-    return 'O e-mail está em formato inválido.';
+    return 'Digite um e-mail válido.';
   }
 
   return null;
 }
 
 export function validarTelefone(telefone?: string): string | null {
-  if (!telefone) {
+  if (!telefone?.trim()) {
     return null;
   }
 
   const numeros = telefone.replace(/\D/g, '');
 
   if (numeros.length !== 10 && numeros.length !== 11) {
-    return 'O telefone deve ter 10 ou 11 dígitos com DDD.';
+    return 'Digite um telefone válido com DDD.';
   }
 
   return null;
 }
 
 export function validarCurso(curso: string): string | null {
+  if (!curso?.trim()) {
+    return 'O curso é obrigatório.';
+  }
+
   if (!CURSOS_VALIDOS.includes(curso)) {
-    return 'O curso informado não é válido.';
+    return 'Selecione uma matéria válida da lista.';
   }
 
   return null;
