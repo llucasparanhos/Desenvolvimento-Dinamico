@@ -1,12 +1,24 @@
 <h2>Pessoas</h2>
 
-@for (p of pessoas; track p.id) {
-  <article class="cartao">
-    <h3>{{ p.nome }}</h3>
-    <p>Curso:{{ p.curso }}</p>
-    <p>Email:{{ p.email }}</p>
-    <p>Telefone: {{ p.telefone }}</p>
-    <small>Vínculo: {{ p.vinculo }}</small>
+@for (resultado of resultados; track resultado.pessoa.id) {
+  <article
+    class="cartao"
+    [class.invalido]="resultado.erros.length > 0"
+  >
+    <h3>{{ resultado.pessoa.nome }}</h3>
+
+    <p>Curso: {{ resultado.pessoa.curso }}</p>
+    <p>Email: {{ resultado.pessoa.email }}</p>
+    <p>Telefone: {{ resultado.pessoa.telefone }}</p>
+    <small>Vínculo: {{ resultado.pessoa.vinculo }}</small>
+
+    @if (resultado.erros.length > 0) {
+      <div class="erros">
+        @for (erro of resultado.erros; track erro) {
+          <p>{{ erro }}</p>
+        }
+      </div>
+    }
   </article>
 } @empty {
   <p>Nenhuma pessoa cadastrada.</p>
