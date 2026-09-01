@@ -1,0 +1,13 @@
+<h2>Pessoas</h2>
+
+@for (p of pessoas; track p.id) {
+  <article class="cartao">
+    <h3>{{ p.nome }}</h3>
+    <p>Curso:{{ p.curso }}</p>
+    <p>Email:{{ p.email }}</p>
+    <p>Telefone: {{ p.telefone }}</p>
+    <small>Vínculo: {{ p.vinculo }}</small>
+  </article>
+} @empty {
+  <p>Nenhuma pessoa cadastrada.</p>
+}

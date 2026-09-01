@@ -1,0 +1,13 @@
+.menu {
+  margin-bottom: 20px;
+}
+
+.menu a {
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.menu a.ativo {
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
